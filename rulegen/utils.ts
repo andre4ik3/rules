@@ -86,10 +86,10 @@ const defaultOptions = {
   direction: [Direction.Outgoing],
   priority: Priority.Regular,
   action: Action.Allow,
-  using: [[443, Protocol.TCP]] as [number, Protocol][],
+  using: [[443, Protocol.TCP]] as [number | "any", Protocol][],
 };
 
-type CombinedOptions = MakeRuleOptions & typeof defaultOptions;
+type CombinedOptions = typeof defaultOptions & MakeRuleOptions;
 type RawRemote = Pick<
   Rule,
   "remote" | "remote-addresses" | "remote-hosts" | "remote-domains"
@@ -104,7 +104,7 @@ function makeRemote(remote: MakeRuleOptions["remote"]): RawRemote {
 }
 
 export function makeRule(input: MakeRuleOptions): Rule[] {
-  const opts: CombinedOptions = { ...input, ...defaultOptions };
+  const opts: CombinedOptions = { ...defaultOptions, ...input };
   const rules: Rule[] = [];
 
   // Unpack "using" key into ports and protocols
