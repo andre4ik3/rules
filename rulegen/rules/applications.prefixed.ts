@@ -14,6 +14,7 @@ function prefix(path: string) {
 const rules = [...Applications.rules].map((rule) => ({
   ...rule,
   process: prefix(rule.process),
+  via: rule.via ? prefix(rule.via) : undefined,
 }));
 
 export default { ...Applications, rules };

@@ -125,7 +125,7 @@ const rules = [
   /* ======================================================================== */
 
   makeRule({
-    process: [Paths.syncthing.app, Paths.syncthing.appBinary],
+    process: [[Paths.syncthing.app, Paths.syncthing.appBinary]],
     direction: [Direction.Incoming],
     remote: Remote.Any,
     using: [[Protocol.TCP, 22000], [Protocol.UDP, 22000]],
@@ -133,7 +133,7 @@ const rules = [
   }),
 
   makeRule({
-    process: [Paths.syncthing.app, Paths.syncthing.appBinary],
+    process: [[Paths.syncthing.app, Paths.syncthing.appBinary]],
     direction: [Direction.Incoming],
     remote: Remote.LocalNet,
     using: [[Protocol.UDP, 21027]],
@@ -141,21 +141,21 @@ const rules = [
   }),
 
   makeRule({
-    process: [Paths.syncthing.app, Paths.syncthing.appBinary],
+    process: [[Paths.syncthing.app, Paths.syncthing.appBinary]],
     remote: Remote.Any,
     using: [[Protocol.TCP, 22067], [Protocol.UDP, 3478]],
     notes: "Allows Syncthing to traverse NAT firewalls.",
   }),
 
   makeRule({
-    process: [Paths.syncthing.app, Paths.syncthing.appBinary],
+    process: [[Paths.syncthing.app, Paths.syncthing.appBinary]],
     remote: Remote.Any,
     using: [[Protocol.TCP, 22000], [Protocol.UDP, 22000]],
     notes: "Allows Syncthing to connect to unfirewalled devices.",
   }),
 
   makeRule({
-    process: [Paths.syncthing.app, Paths.syncthing.appBinary],
+    process: [[Paths.syncthing.app, Paths.syncthing.appBinary]],
     remote: Remote.Any,
     using: [[Protocol.TCP, "any"], [Protocol.UDP, "any"]],
     notes: "Allows Syncthing to connect to any device or relay.",
