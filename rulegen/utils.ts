@@ -17,6 +17,7 @@ export enum Priority {
 }
 
 export enum Protocol {
+  Any = "any",
   TCP = "tcp",
   UDP = "udp",
   ICMP = "icmp",
@@ -77,7 +78,7 @@ export interface MakeRuleOptions {
   action?: Action;
 
   remote: Remote | [RemoteType, string[]];
-  using?: [number | "any", Protocol][];
+  using?: [Protocol, number | "any"][];
   notes: string;
 }
 
@@ -85,7 +86,7 @@ const defaultOptions = {
   direction: [Direction.Outgoing],
   priority: Priority.Regular,
   action: Action.Allow,
-  using: [[443, Protocol.TCP]] as [number | "any", Protocol][],
+  using: [[Protocol.Any, "any"]] as [Protocol, number | "any"][],
 };
 
 type CombinedOptions = typeof defaultOptions & MakeRuleOptions;
@@ -119,8 +120,8 @@ export function makeRule(input: MakeRuleOptions): Rule[] {
         via: opts.via,
         disabled: true,
 
-        ports: using[0] === "any" ? undefined : `${using[0]}`,
-        protocol: using[1],
+        ports: using[1] === "any" ? undefined : `${using[1]}`,
+        protocol: using[0] === Protocol.Any ? undefined : using[0],
         notes: opts.notes,
         ...makeRemote(opts.remote),
       });

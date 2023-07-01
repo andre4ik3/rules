@@ -1,5 +1,5 @@
 import { LSRules } from "./utils.ts";
-import Rules from "./rules.ts";
+import Rules from "./rules/applications.ts";
 
 const rules: LSRules = {
   name: "Application Rules",
@@ -9,10 +9,10 @@ const rules: LSRules = {
 };
 
 await Deno.mkdir("./_site", { recursive: true });
-await Deno.writeTextFile("./_site/rules.lsrules", JSON.stringify(rules));
+await Deno.writeTextFile("./_site/applications.lsrules", JSON.stringify(rules));
 
 const subscribeLink =
-  "x-littlesnitch:subscribe-rules?url=https%3A%2F%2Fandre4ik3.github.io%2Frules%2Frules.lsrules";
+  "x-littlesnitch:subscribe-rules?url=https%3A%2F%2Fandre4ik3.github.io%2Frules%2Fapplications.lsrules";
 
 const intro = `<html lang="en">
 <head><title>Little Snitch Application Rules</title></head>

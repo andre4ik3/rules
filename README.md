@@ -6,6 +6,10 @@ Rules for [Little Snitch] that allow various programs to operate.
 - Each rule has a description that describes why it's needed.
 - All rules are disabled by default.
 
-[Subscribe](https://andre4ik3.github.io/rules/)
+[Subscribe](https://andre4ik3.github.io/rules/) or use this URL:
+
+```
+https://andre4ik3.github.io/rules/applications.lsrules
+```
 
 [Little Snitch]: https://obdev.at/products/littlesnitch/index.html
