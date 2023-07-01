@@ -1,4 +1,4 @@
-import { Direction, makeRule, Protocol } from "./utils.ts";
+import { Direction, makeRule, Protocol, Remote } from "./utils.ts";
 
 const Apps = {
   wireguard:
@@ -8,14 +8,8 @@ const Apps = {
 export default [
   makeRule({
     process: Apps.wireguard,
-    using: [["any", Protocol.UDP]],
-    notes: `Allows WireGuard to communicate with VPN servers.
-Note: Both this rule and the incoming rule are required for proper operation.`,
-  }),
-
-  makeRule({
-    process: Apps.wireguard,
-    direction: Direction.Incoming,
+    remote: Remote.Any,
+    direction: [Direction.Incoming, Direction.Outgoing],
     using: [["any", Protocol.UDP]],
     notes: `Allows WireGuard to communicate with VPN servers.
 Note: Both this rule and the outgoing rule are required for proper operation.`,
