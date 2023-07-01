@@ -8,6 +8,6 @@ for await (const entry of Deno.readDir(folder.pathname)) {
   if (entry.isFile && entry.name.endsWith(".ts")) {
     const data = await import(`${folder.toString()}/${entry.name}`);
     const path = `./_site/${entry.name.replace(".ts", ".lsrules")}`;
-    await Deno.writeTextFile(path, JSON.stringify(data));
+    await Deno.writeTextFile(path, JSON.stringify(data.default));
   }
 }
