@@ -1,7 +1,9 @@
 import { Handlebars } from "handlebars";
+import { paramCase } from "case";
 import { LSRules, Metadata, Rule } from "./rulegen/types.ts";
 import { serve } from "std/http/server.ts";
 import SystemRules from "./rulegen/rules/system.ts";
+import * as Snippets from "./rulegen/rules.ts";
 
 type Snippet = { metadata: Metadata; rules: Rule[] };
 
@@ -9,13 +11,9 @@ const self = import.meta.url;
 const snippets = new Map<string, Snippet>();
 const snippetsDir = new URL(self.slice(0, self.lastIndexOf("/")) + "/rulegen/rules/apps/");
 
-// Import all rule snippets dynamically.
-for await (const entry of Deno.readDir(snippetsDir.pathname)) {
-  if (entry.isFile && entry.name.endsWith(".ts")) {
-    const id = entry.name.replace(".ts", "");
-    const data: Omit<Snippet, "id"> = await import(snippetsDir.toString() + entry.name);
-    snippets.set(id, data);
-  }
+// Import all rule snippets.
+for (const [key, value] of Object.entries(Snippets)) {
+  snippets.set(paramCase(key), value);
 }
 
 // Create prefixed variants.

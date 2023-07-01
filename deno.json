@@ -1,12 +1,14 @@
 {
   "imports": {
-    "std/": "https://deno.land/std@0.192.0/",
-    "handlebars": "https://deno.land/x/handlebars@v0.10.0/mod.ts"
+    "case": "https://deno.land/x/case@2.1.1/mod.ts",
+    "handlebars": "https://deno.land/x/handlebars@v0.10.0/mod.ts",
+    "std/": "https://deno.land/std@0.192.0/"
   },
   "fmt": {
     "lineWidth": 100
   },
   "tasks": {
-    "start": "deno run --allow-read --allow-net main.ts"
+    "build": "deno run --allow-read --allow-write=rulegen/rules.ts rulegen/rules.build.ts",
+    "start": "deno task build && deno run --allow-read --allow-net main.ts"
   }
 }
