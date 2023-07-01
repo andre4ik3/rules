@@ -27,9 +27,14 @@ const rules = [
   makeRule({
     process: [Paths.arc.app],
     remote: [RemoteType.Host, [
+      "content.arc.net",
       "firestore.googleapis.com",
       "securetoken.googleapis.com",
       "www.googleapis.com",
+      "t0.gstatic.com",
+      "t1.gstatic.com",
+      "t2.gstatic.com",
+      "t3.gstatic.com",
     ]],
     using: [[Protocol.TCP, 443]],
     notes: "Allows Arc accounts, Easels, and other features to work.",
@@ -37,7 +42,7 @@ const rules = [
 
   makeRule({
     process: [Paths.arc.app],
-    remote: [RemoteType.Host, ["releases.arc.net", "content.arc.net"]],
+    remote: [RemoteType.Host, ["releases.arc.net"]],
     using: [[Protocol.TCP, 443]],
     notes: "Allows Arc to check for and install updates.",
   }),
