@@ -24,7 +24,7 @@ const Apps = {
   },
 } as const;
 
-export default [
+const rules = [
   /* ======================================================================== */
   /* iStat Menus                                                              */
   /* ======================================================================== */
@@ -98,3 +98,10 @@ Note: Both this rule and the outgoing rule are required for proper operation.`,
     notes: "Allows Apple Remote Desktop to perform screen sharing.",
   }),
 ].flat();
+
+export default {
+  name: "Applications",
+  description:
+    "Allows various applications to function. Each rule corresponds to specific functionality of the application, detailed in the description. Note: All rules are disabled by default!",
+  rules,
+};

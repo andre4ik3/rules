@@ -1,22 +1,8 @@
-import { LSRules } from "./utils.ts";
-import Rules from "./rules/applications.ts";
-
-const rules: LSRules = {
-  name: "Application Rules",
-  description:
-    "Allows various applications to function. Each rule corresponds to specific functionality of the application, detailed in the description. Note: All rules are disabled by default!",
-  rules: Rules,
-};
+import Applications from "./rules/applications.ts";
 
 await Deno.mkdir("./_site", { recursive: true });
-await Deno.writeTextFile("./_site/applications.lsrules", JSON.stringify(rules));
 
-const subscribeLink =
-  "x-littlesnitch:subscribe-rules?url=https%3A%2F%2Fandre4ik3.github.io%2Frules%2Fapplications.lsrules";
-
-const intro = `<html lang="en">
-<head><title>Little Snitch Application Rules</title></head>
-<body><a href="${subscribeLink}">Subscribe</a></body>
-</html>`;
-
-await Deno.writeTextFile("./_site/index.html", intro);
+[Applications].forEach((file) => {
+  const filename = file.name.toLowerCase();
+  Deno.writeTextFileSync(`./_site/${filename}.lsrules`, JSON.stringify(file));
+});
