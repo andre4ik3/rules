@@ -1,6 +1,5 @@
 import { Direction, makeRule, Protocol, Remote, RemoteType } from "../ls.ts";
-
-const Paths = {} as const;
+import Paths from "../paths.json" assert { type: "json" };
 
 const rules = [].flat();
 

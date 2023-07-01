@@ -1,0 +1,42 @@
+{
+  "gpgSuite": {
+    "updater": "/Library/Application Support/GPGTools/GPGSuite_Updater.app/Contents/MacOS/GPGSuite_Updater"
+  },
+
+  "iStatMenus": {
+    "daemon": "/Library/Application Support/iStat Menus 6/iStatMenusDaemon",
+    "status": "/Library/Application Support/iStat Menus 6/iStat Menus Status.app/Contents/MacOS/iStat Menus Status"
+  },
+
+  "littleSnitch": {
+    "downloader": "/Library/Application Support/Objective Development/Little Snitch/Components/at.obdev.littlesnitch.daemon.bundle/Contents/XPCServices/at.obdev.littlesnitch.urldownloader.xpc/Contents/MacOS/at.obdev.littlesnitch.urldownloader",
+    "updater": "/Applications/Little Snitch.app/Contents/Components/Little Snitch Software Update.app/Contents/MacOS/Little Snitch Software Update"
+  },
+
+  "makeTheWeb": {
+    "cleanShot": "/Applications/CleanShot X.app/Contents/MacOS/CleanShot X",
+    "pixelSnap": "/Applications/PixelSnap 2.app/Contents/MacOS/PixelSnap 2"
+  },
+
+  "panic": {
+    "nova": "/Applications/Nova.app/Contents/MacOS/Nova",
+    "transmit": "/Applications/Transmit.app/Contents/MacOS/Transmit"
+  },
+
+  "remoteDesktop": {
+    "agent": "/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/MacOS/ARDAgent",
+    "app": "/Applications/Remote Desktop.app/Contents/MacOS/Remote Desktop"
+  },
+
+  "safari": {
+    "app": "/Applications/Safari.app/Contents/MacOS/Safari",
+    "safeBrowsingService": "/System/Library/PrivateFrameworks/SafariSafeBrowsing.framework/Versions/A/com.apple.Safari.SafeBrowsing.Service"
+  },
+
+  "syncthing": {
+    "app": "/Applications/Syncthing.app/Contents/MacOS/Syncthing",
+    "appBinary": "/Applications/Syncthing.app/Contents/Resources/syncthing/syncthing"
+  },
+
+  "wireguard": "/Applications/WireGuard.app/Contents/PlugIns/WireGuardNetworkExtension.appex/Contents/MacOS/WireGuardNetworkExtension"
+}

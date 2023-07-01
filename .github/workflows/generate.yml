@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: denoland/setup-deno@v1
-      - run: deno run --allow-write=_site rulegen/main.ts
+      - run: deno run --allow-read=rulegen --allow-write=_site rulegen/main.ts
       - uses: actions/upload-pages-artifact@v1
 
   deploy:

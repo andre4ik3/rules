@@ -1,57 +1,5 @@
 import { Direction, makeRule, Protocol, Remote, RemoteType } from "../ls.ts";
-import { maybePrefixed } from "../utils.ts";
-
-const Paths = {
-  gpgSuite: {
-    updater:
-      "/Library/Application Support/GPGTools/GPGSuite_Updater.app/Contents/MacOS/GPGSuite_Updater",
-  },
-
-  iStatMenus: {
-    daemon: "/Library/Application Support/iStat Menus 6/iStatMenusDaemon",
-    status:
-      "/Library/Application Support/iStat Menus 6/iStat Menus Status.app/Contents/MacOS/iStat Menus Status",
-  },
-
-  littleSnitch: {
-    downloader:
-      "/Library/Application Support/Objective Development/Little Snitch/Components/at.obdev.littlesnitch.daemon.bundle/Contents/XPCServices/at.obdev.littlesnitch.urldownloader.xpc/Contents/MacOS/at.obdev.littlesnitch.urldownloader",
-    updater:
-      "/Applications/Little Snitch.app/Contents/Components/Little Snitch Software Update.app/Contents/MacOS/Little Snitch Software Update",
-  },
-
-  makeTheWeb: {
-    cleanShot: "/Applications/CleanShot X.app/Contents/MacOS/CleanShot X",
-    pixelSnap: "/Applications/PixelSnap 2.app/Contents/MacOS/PixelSnap 2",
-  },
-
-  panic: {
-    nova: "/Applications/Nova.app/Contents/MacOS/Nova",
-    transmit: "/Applications/Transmit.app/Contents/MacOS/Transmit",
-  },
-
-  remoteDesktop: {
-    agent:
-      "/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/MacOS/ARDAgent",
-    app: "/Applications/Remote Desktop.app/Contents/MacOS/Remote Desktop",
-  },
-
-  safari: {
-    app: "/Applications/Safari.app/Contents/MacOS/Safari",
-    safeBrowsingService:
-      "/System/Library/PrivateFrameworks/SafariSafeBrowsing.framework/Versions/A/com.apple.Safari.SafeBrowsing.Service",
-  },
-
-  syncthing: {
-    app: "/Applications/Syncthing.app/Contents/MacOS/Syncthing",
-    appBinary:
-      "/Applications/Syncthing.app/Contents/Resources/syncthing/syncthing",
-    binary: "/usr/local/bin/syncthing",
-  },
-
-  wireguard:
-    "/Applications/WireGuard.app/Contents/PlugIns/WireGuardNetworkExtension.appex/Contents/MacOS/WireGuardNetworkExtension",
-} as const;
+import Paths from "../paths.json" assert { type: "json" };
 
 const rules = [
   /* ======================================================================== */
@@ -112,10 +60,7 @@ const rules = [
   /* ======================================================================== */
 
   makeRule({
-    process: maybePrefixed(
-      Paths.makeTheWeb.cleanShot,
-      Paths.makeTheWeb.pixelSnap,
-    ),
+    process: [Paths.makeTheWeb.cleanShot, Paths.makeTheWeb.pixelSnap],
     remote: [RemoteType.Host, ["legit.maketheweb.io"]],
     using: [[Protocol.TCP, 443]],
     notes: "Allows this app to check the validity of a license key.",
@@ -126,14 +71,14 @@ const rules = [
   /* ======================================================================== */
 
   makeRule({
-    process: maybePrefixed(Paths.panic.nova, Paths.panic.transmit),
+    process: [Paths.panic.nova, Paths.panic.transmit],
     remote: [RemoteType.Host, ["circle.panic.com"]],
     using: [[Protocol.TCP, 443]],
     notes: "Allows this app to check the validity of a license key.",
   }),
 
   makeRule({
-    process: maybePrefixed(Paths.panic.transmit),
+    process: [Paths.panic.transmit],
     remote: [RemoteType.Host, ["panic.com", "www.panic.com"]],
     using: [[Protocol.TCP, 443]],
     notes: "Allows Transmit to check for app and S3 region updates.",
@@ -151,7 +96,7 @@ const rules = [
   }),
 
   makeRule({
-    process: maybePrefixed(Paths.remoteDesktop.app),
+    process: [Paths.remoteDesktop.app],
     remote: Remote.Any,
     using: [[Protocol.ICMP, "any"], [Protocol.TCP, 5900]],
     notes: "Allows Remote Desktop to perform screen sharing.",
@@ -180,10 +125,7 @@ const rules = [
   /* ======================================================================== */
 
   makeRule({
-    process: [
-      ...maybePrefixed([Paths.syncthing.app, Paths.syncthing.appBinary]),
-      ...maybePrefixed(Paths.syncthing.binary),
-    ],
+    process: [Paths.syncthing.app, Paths.syncthing.appBinary],
     direction: [Direction.Incoming],
     remote: Remote.Any,
     using: [[Protocol.TCP, 22000], [Protocol.UDP, 22000]],
@@ -191,10 +133,7 @@ const rules = [
   }),
 
   makeRule({
-    process: [
-      ...maybePrefixed([Paths.syncthing.app, Paths.syncthing.appBinary]),
-      ...maybePrefixed(Paths.syncthing.binary),
-    ],
+    process: [Paths.syncthing.app, Paths.syncthing.appBinary],
     direction: [Direction.Incoming],
     remote: Remote.LocalNet,
     using: [[Protocol.UDP, 21027]],
@@ -202,30 +141,21 @@ const rules = [
   }),
 
   makeRule({
-    process: [
-      ...maybePrefixed([Paths.syncthing.app, Paths.syncthing.appBinary]),
-      ...maybePrefixed(Paths.syncthing.binary),
-    ],
+    process: [Paths.syncthing.app, Paths.syncthing.appBinary],
     remote: Remote.Any,
     using: [[Protocol.TCP, 22067], [Protocol.UDP, 3478]],
     notes: "Allows Syncthing to traverse NAT firewalls.",
   }),
 
   makeRule({
-    process: [
-      ...maybePrefixed([Paths.syncthing.app, Paths.syncthing.appBinary]),
-      ...maybePrefixed(Paths.syncthing.binary),
-    ],
+    process: [Paths.syncthing.app, Paths.syncthing.appBinary],
     remote: Remote.Any,
     using: [[Protocol.TCP, 22000], [Protocol.UDP, 22000]],
     notes: "Allows Syncthing to connect to unfirewalled devices.",
   }),
 
   makeRule({
-    process: [
-      ...maybePrefixed([Paths.syncthing.app, Paths.syncthing.appBinary]),
-      ...maybePrefixed(Paths.syncthing.binary),
-    ],
+    process: [Paths.syncthing.app, Paths.syncthing.appBinary],
     remote: Remote.Any,
     using: [[Protocol.TCP, "any"], [Protocol.UDP, "any"]],
     notes: "Allows Syncthing to connect to any device or relay.",
@@ -236,7 +166,7 @@ const rules = [
   /* ======================================================================== */
 
   makeRule({
-    process: maybePrefixed(Paths.wireguard),
+    process: [Paths.wireguard],
     remote: Remote.Any,
     direction: [Direction.Incoming, Direction.Outgoing],
     using: [[Protocol.UDP, "any"]],

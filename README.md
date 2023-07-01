@@ -14,7 +14,7 @@ The rules are generated using [Deno]. The rules are in the `rulegen/rules`
 folder, with each file corresponding to a ruleset. To generate the rules:
 
 ```
-deno run --allow-write=_site rulegen/main.ts
+deno run --allow-read=rulegen --allow-write=_site rulegen/main.ts
 ```
 
 The rules will be in the `_site` folder.

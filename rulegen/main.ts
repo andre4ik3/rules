@@ -1,9 +1,13 @@
-import Applications from "./rules/applications.ts";
-import System from "./rules/system.ts";
+const folder = new URL(
+  import.meta.url.substr(0, import.meta.url.lastIndexOf("/")) + "/rules",
+);
 
 await Deno.mkdir("./_site", { recursive: true });
 
-[Applications, System].forEach((file) => {
-  const filename = file.name.toLowerCase();
-  Deno.writeTextFileSync(`./_site/${filename}.lsrules`, JSON.stringify(file));
-});
+for await (const entry of Deno.readDir(folder.pathname)) {
+  if (entry.isFile && entry.name.endsWith(".ts")) {
+    const data = await import(`${folder.toString()}/${entry.name}`);
+    const path = `./_site/${entry.name.replace(".ts", ".lsrules")}`;
+    await Deno.writeTextFile(path, JSON.stringify(data));
+  }
+}
