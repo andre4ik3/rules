@@ -16,6 +16,6 @@ export function maybePrefixed<T extends string | [string, string]>(
   ...paths: T[]
 ): T[] {
   return paths.map((path) => {
-    return (typeof path === "string" ? prefix(path) : path.map(prefix)) as T;
-  });
+    return (typeof path === "string" ? prefix(path) : path.map(prefix));
+  }).flat() as T[];
 }
