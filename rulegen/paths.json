@@ -13,6 +13,8 @@
     "status": "/Library/Application Support/iStat Menus 6/iStat Menus Status.app/Contents/MacOS/iStat Menus Status"
   },
 
+  "latest": "/Applications/Latest.app/Contents/MacOS/Latest",
+
   "littleSnitch": {
     "downloader": "/Library/Application Support/Objective Development/Little Snitch/Components/at.obdev.littlesnitch.daemon.bundle/Contents/XPCServices/at.obdev.littlesnitch.urldownloader.xpc/Contents/MacOS/at.obdev.littlesnitch.urldownloader",
     "updater": "/Applications/Little Snitch.app/Contents/Components/Little Snitch Software Update.app/Contents/MacOS/Little Snitch Software Update"
@@ -28,7 +30,7 @@
     "transmit": "/Applications/Transmit.app/Contents/MacOS/Transmit"
   },
 
-  "raycast": "/Applications/Homebrew/Raycast.app/Contents/MacOS/Raycast",
+  "raycast": "/Applications/Raycast.app/Contents/MacOS/Raycast",
 
   "remoteDesktop": {
     "agent": "/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/MacOS/ARDAgent",
