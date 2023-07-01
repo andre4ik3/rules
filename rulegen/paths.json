@@ -51,5 +51,11 @@
     "appBinary": "/Applications/Syncthing.app/Contents/Resources/syncthing/syncthing"
   },
 
+  "weather": {
+    "app": "/System/Applications/Weather.app/Contents/MacOS/Weather",
+    "widget": "/System/Applications/Weather.app/Contents/PlugIns/WeatherWidget.appex/Contents/MacOS/WeatherWidget",
+    "widgetIntents": "/System/Applications/Weather.app/Contents/PlugIns/WeatherIntents.appex/Contents/MacOS/WeatherIntents"
+  },
+
   "wireguard": "/Applications/WireGuard.app/Contents/PlugIns/WireGuardNetworkExtension.appex/Contents/MacOS/WireGuardNetworkExtension"
 }

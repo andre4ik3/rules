@@ -41,13 +41,6 @@ const rules = [
     notes: "Allows Arc accounts, Easels, and other features to work.",
   }),
 
-  makeRule({
-    process: [Paths.arc.app],
-    remote: [RemoteType.Host, ["releases.arc.net"]],
-    using: [[Protocol.TCP, 443]],
-    notes: "Allows Arc to check for and install updates.",
-  }),
-
   /* ======================================================================== */
   /* GPG Suite                                                                */
   /* ======================================================================== */
@@ -160,9 +153,9 @@ const rules = [
 
   makeRule({
     process: [Paths.panic.transmit],
-    remote: [RemoteType.Host, ["panic.com", "www.panic.com"]],
+    remote: [RemoteType.Host, ["panic.com"]],
     using: [[Protocol.TCP, 443]],
-    notes: "Allows Transmit to check for app and S3 region updates.",
+    notes: "Allows Transmit to check for S3 region updates.",
   }),
 
   /* ======================================================================== */
@@ -177,13 +170,6 @@ const rules = [
     ]],
     using: [[Protocol.TCP, 443]],
     notes: "Allows Raycast to look up flights and currency conversions.",
-  }),
-
-  makeRule({
-    process: [Paths.raycast],
-    remote: [RemoteType.Host, ["releases.raycast.com"]],
-    using: [[Protocol.TCP, 443]],
-    notes: "Allows Raycast to check for and install updates.",
   }),
 
   makeRule({
@@ -246,13 +232,6 @@ const rules = [
     remote: [RemoteType.Host, ["edovia.com"]],
     using: [[Protocol.TCP, 443]],
     notes: "Allows Screens to check the validity of a license key.",
-  }),
-
-  makeRule({
-    process: [Paths.screens],
-    remote: [RemoteType.Host, ["updates.edovia.com"]],
-    using: [[Protocol.TCP, 443]],
-    notes: "Allows Screens to check for and install updates.",
   }),
 
   // todo: screens connect
