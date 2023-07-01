@@ -17,7 +17,6 @@ export enum Priority {
 }
 
 export enum Protocol {
-  Any = "any",
   TCP = "tcp",
   UDP = "udp",
   ICMP = "icmp",
@@ -55,8 +54,8 @@ export interface Rule {
   "remote-domains"?: string[];
   remote?: Remote;
 
-  ports: "any" | `${number}` | `${number}-${number}`;
-  protocol: Protocol;
+  ports?: `${number}` | `${number}-${number}`;
+  protocol?: Protocol;
   disabled: boolean;
   notes: string;
 }
@@ -120,7 +119,7 @@ export function makeRule(input: MakeRuleOptions): Rule[] {
         via: opts.via,
         disabled: true,
 
-        ports: `${using[0]}`,
+        ports: using[0] === "any" ? undefined : `${using[0]}`,
         protocol: using[1],
         notes: opts.notes,
         ...makeRemote(opts.remote),
