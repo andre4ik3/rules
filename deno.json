@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "std/": "https://deno.land/std@0.192.0/",
+    "handlebars": "https://deno.land/x/handlebars@v0.10.0/mod.ts"
+  },
+  "fmt": {
+    "lineWidth": 100
+  },
+  "tasks": {
+    "start": "deno run --allow-read --allow-net main.ts"
+  }
+}

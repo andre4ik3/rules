@@ -1,5 +1,12 @@
 // === Helpers and things for writing rules in TypeScript ===
 
+export interface Metadata {
+  name: string;
+  description: string;
+  homepage: string;
+  properties?: Partial<{ canHavePrefix: true }>;
+}
+
 export enum Direction {
   Incoming = "incoming",
   Outgoing = "outgoing",
