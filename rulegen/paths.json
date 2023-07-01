@@ -1,4 +1,9 @@
 {
+  "arc": {
+    "app": "/Applications/Arc.app/Contents/MacOS/Arc",
+    "helper": "/Applications/Arc.app/Contents/Frameworks/ArcCore.framework/Versions/A/Helpers/Arc Helper.app/Contents/MacOS/Arc Helper"
+  },
+
   "gpgSuite": {
     "updater": "/Library/Application Support/GPGTools/GPGSuite_Updater.app/Contents/MacOS/GPGSuite_Updater"
   },

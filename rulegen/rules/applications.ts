@@ -3,6 +3,46 @@ import Paths from "../paths.json" assert { type: "json" };
 
 const rules = [
   /* ======================================================================== */
+  /* Arc                                                                      */
+  /* ======================================================================== */
+
+  makeRule({
+    process: [[Paths.arc.app, Paths.arc.helper]],
+    remote: Remote.Any,
+    using: [[Protocol.TCP, "any"], [Protocol.UDP, "any"]],
+    notes: "Allows Arc to be used for web browsing.",
+  }),
+
+  makeRule({
+    process: [Paths.arc.app],
+    remote: [RemoteType.Host, [
+      "clientstream.launchdarkly.com",
+      "mobile.launchdarkly.com",
+    ]],
+    using: [[Protocol.TCP, 443]],
+    notes:
+      "Allows Arc's feature flag system to work. This is generally required to see new features after an update.",
+  }),
+
+  makeRule({
+    process: [Paths.arc.app],
+    remote: [RemoteType.Host, [
+      "firestore.googleapis.com",
+      "securetoken.googleapis.com",
+      "www.googleapis.com",
+    ]],
+    using: [[Protocol.TCP, 443]],
+    notes: "Allows Arc accounts, Easels, and other features to work.",
+  }),
+
+  makeRule({
+    process: [Paths.arc.app],
+    remote: [RemoteType.Host, ["releases.arc.net", "content.arc.net"]],
+    using: [[Protocol.TCP, 443]],
+    notes: "Allows Arc to check for and install updates.",
+  }),
+
+  /* ======================================================================== */
   /* GPG Suite                                                                */
   /* ======================================================================== */
 
