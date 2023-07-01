@@ -28,6 +28,8 @@
     "transmit": "/Applications/Transmit.app/Contents/MacOS/Transmit"
   },
 
+  "raycast": "/Applications/Homebrew/Raycast.app/Contents/MacOS/Raycast",
+
   "remoteDesktop": {
     "agent": "/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/MacOS/ARDAgent",
     "app": "/Applications/Remote Desktop.app/Contents/MacOS/Remote Desktop"
@@ -37,6 +39,10 @@
     "app": "/Applications/Safari.app/Contents/MacOS/Safari",
     "safeBrowsingService": "/System/Library/PrivateFrameworks/SafariSafeBrowsing.framework/Versions/A/com.apple.Safari.SafeBrowsing.Service"
   },
+
+  "screens": "/Applications/Screens 4.app/Contents/MacOS/Screens 4",
+
+  "sketch": "/Applications/Sketch.app/Contents/MacOS/Sketch",
 
   "syncthing": {
     "app": "/Applications/Syncthing.app/Contents/MacOS/Syncthing",

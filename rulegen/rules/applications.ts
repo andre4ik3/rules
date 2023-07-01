@@ -28,6 +28,7 @@ const rules = [
     process: [Paths.arc.app],
     remote: [RemoteType.Host, [
       "content.arc.net",
+      "firebasestorage.googleapis.com",
       "firestore.googleapis.com",
       "securetoken.googleapis.com",
       "www.googleapis.com",
@@ -123,10 +124,63 @@ const rules = [
   }),
 
   makeRule({
+    process: [Paths.panic.nova],
+    remote: [RemoteType.Host, ["api.github.com"]],
+    using: [[Protocol.TCP, 443]],
+    notes: "Allows Nova to connect to 3rd-party Git integrations.",
+  }),
+
+  makeRule({
+    process: [Paths.panic.nova],
+    remote: [RemoteType.Host, [
+      "extensions.panic.com",
+      "nova-extensions.freetls.fastly.net",
+    ]],
+    using: [[Protocol.TCP, 443]],
+    notes: "Allows Nova to download and update extensions.",
+  }),
+
+  makeRule({
+    process: [Paths.panic.nova],
+    remote: [RemoteType.Host, ["www.gravatar.com"]],
+    using: [[Protocol.TCP, 443]],
+    notes: "Allows Nova to display avatars for Git authors.",
+  }),
+
+  makeRule({
     process: [Paths.panic.transmit],
     remote: [RemoteType.Host, ["panic.com", "www.panic.com"]],
     using: [[Protocol.TCP, 443]],
     notes: "Allows Transmit to check for app and S3 region updates.",
+  }),
+
+  /* ======================================================================== */
+  /* Raycast                                                                  */
+  /* ======================================================================== */
+
+  makeRule({
+    process: [Paths.raycast],
+    remote: [RemoteType.Host, [
+      "aerodatabox.p.rapidapi.com",
+      "backend.raycast.com",
+    ]],
+    using: [[Protocol.TCP, 443]],
+    notes: "Allows Raycast to look up flights and currency conversions.",
+  }),
+
+  makeRule({
+    process: [Paths.raycast],
+    remote: [RemoteType.Host, ["releases.raycast.com"]],
+    using: [[Protocol.TCP, 443]],
+    notes: "Allows Raycast to check for and install updates.",
+  }),
+
+  makeRule({
+    process: [Paths.raycast],
+    remote: [RemoteType.Host, ["nodejs.org"]],
+    using: [[Protocol.TCP, 443]],
+    notes:
+      "Allows Raycast to download and update a Node.JS runtime. This is required to use extensions.",
   }),
 
   /* ======================================================================== */
@@ -164,6 +218,39 @@ const rules = [
     using: [[Protocol.TCP, 443]],
     notes: "Allows Safari's Safe Browsing integration to work.",
   }),
+
+  /* ======================================================================== */
+  /* Screens                                                                  */
+  /* ======================================================================== */
+
+  makeRule({
+    process: [Paths.screens],
+    remote: Remote.Any,
+    using: [[Protocol.TCP, 5900]],
+    notes: "Allows Screens to perform screen sharing.",
+  }),
+
+  makeRule({
+    process: [Paths.screens],
+    remote: [RemoteType.Host, ["edovia.com"]],
+    using: [[Protocol.TCP, 443]],
+    notes: "Allows Screens to check the validity of a license key.",
+  }),
+
+  makeRule({
+    process: [Paths.screens],
+    remote: [RemoteType.Host, ["updates.edovia.com"]],
+    using: [[Protocol.TCP, 443]],
+    notes: "Allows Screens to check for and install updates.",
+  }),
+
+  // todo: screens connect
+
+  /* ======================================================================== */
+  /* Sketch                                                                   */
+  /* ======================================================================== */
+
+  // todo
 
   /* ======================================================================== */
   /* Syncthing                                                                */
