@@ -3,6 +3,7 @@ import Paths from "../../paths.json" assert { type: "json" };
 
 export const metadata: Metadata = {
   name: "Transmit",
+  id: "transmit",
   description: "FTP client",
   homepage: "https://panic.com/transmit/",
   properties: { canHavePrefix: true },

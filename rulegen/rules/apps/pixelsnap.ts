@@ -3,6 +3,7 @@ import Paths from "../../paths.json" assert { type: "json" };
 
 export const metadata: Metadata = {
   name: "PixelSnap 2",
+  id: "raycast",
   description: "Measuring tool",
   homepage: "https://getpixelsnap.com/",
   properties: { canHavePrefix: true },

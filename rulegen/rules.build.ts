@@ -9,7 +9,7 @@ export async function makeImports() {
   for await (const entry of Deno.readDir(dir.pathname)) {
     if (entry.isFile && entry.name.endsWith(".ts")) {
       const name = pascalCase(entry.name.replace(".ts", ""));
-      file.push(`export * as ${name} from "./rules/apps/${entry.name}"`);
+      file.push(`export * as ${name} from "./rules/apps/${entry.name}";`);
     }
   }
 

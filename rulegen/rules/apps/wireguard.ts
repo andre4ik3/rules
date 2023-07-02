@@ -3,6 +3,7 @@ import Paths from "../../paths.json" assert { type: "json" };
 
 export const metadata: Metadata = {
   name: "WireGuard",
+  id: "wireguard",
   description: "Lightweight VPN",
   homepage: "https://wireguard.com",
   properties: { canHavePrefix: true },

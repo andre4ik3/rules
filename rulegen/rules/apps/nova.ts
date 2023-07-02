@@ -3,6 +3,7 @@ import Paths from "../../paths.json" assert { type: "json" };
 
 export const metadata: Metadata = {
   name: "Nova",
+  id: "nova",
   description: "Native code editor",
   homepage: "https://nova.app",
   properties: { canHavePrefix: true },

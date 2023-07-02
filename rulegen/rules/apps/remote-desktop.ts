@@ -3,6 +3,7 @@ import Paths from "../../paths.json" assert { type: "json" };
 
 export const metadata: Metadata = {
   name: "Remote Desktop",
+  id: "remote-desktop",
   description: "Apple's screen sharing client",
   homepage: "https://support.apple.com/guide/remote-desktop/welcome/mac",
   properties: { canHavePrefix: true },

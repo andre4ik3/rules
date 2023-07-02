@@ -3,6 +3,7 @@ import Paths from "../../paths.json" assert { type: "json" };
 
 export const metadata: Metadata = {
   name: "Latest",
+  id: "latest",
   description: "Software update checker",
   homepage: "https://max.codes/latest/",
   properties: { canHavePrefix: true },

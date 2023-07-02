@@ -3,6 +3,7 @@ import Paths from "../../paths.json" assert { type: "json" };
 
 export const metadata: Metadata = {
   name: "Screens",
+  id: "screens",
   description: "Screen sharing client",
   homepage: "https://edovia.com/en/screens-mac/",
   properties: { canHavePrefix: true },

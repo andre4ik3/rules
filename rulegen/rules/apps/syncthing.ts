@@ -3,6 +3,7 @@ import Paths from "../../paths.json" assert { type: "json" };
 
 export const metadata: Metadata = {
   name: "Syncthing",
+  id: "syncthing",
   description: "Cross-platform file synchronization",
   homepage: "https://syncthing.net",
   properties: { canHavePrefix: true },

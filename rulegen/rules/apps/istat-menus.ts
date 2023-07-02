@@ -3,6 +3,7 @@ import Paths from "../../paths.json" assert { type: "json" };
 
 export const metadata: Metadata = {
   name: "iStat Menus",
+  id: "istat-menus",
   description: "System monitoring suite that runs in the menu bar",
   homepage: "https://bjango.com/mac/istatmenus/",
 };

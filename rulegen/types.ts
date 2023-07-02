@@ -1,7 +1,13 @@
 // === Helpers and things for writing rules in TypeScript ===
 
+export interface Snippet {
+  metadata: Metadata;
+  rules: Rule[];
+}
+
 export interface Metadata {
   name: string;
+  id: string;
   description: string;
   homepage: string;
   properties?: Partial<{ canHavePrefix: true }>;

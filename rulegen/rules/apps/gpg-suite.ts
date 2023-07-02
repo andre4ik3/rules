@@ -3,6 +3,7 @@ import Paths from "../../paths.json" assert { type: "json" };
 
 export const metadata: Metadata = {
   name: "GPG Suite",
+  id: "gpg-suite",
   description: "Graphical user interface for GNU Privacy Guard",
   homepage: "https://gpgtools.org/",
 };

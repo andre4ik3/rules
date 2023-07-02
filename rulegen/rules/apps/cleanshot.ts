@@ -3,6 +3,7 @@ import Paths from "../../paths.json" assert { type: "json" };
 
 export const metadata: Metadata = {
   name: "CleanShot X",
+  id: "cleanshot",
   description: "Advanced screen capture tool",
   homepage: "https://cleanshot.com/",
   properties: { canHavePrefix: true },

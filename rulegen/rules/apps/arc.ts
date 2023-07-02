@@ -3,6 +3,7 @@ import Paths from "../../paths.json" assert { type: "json" };
 
 export const metadata: Metadata = {
   name: "Arc",
+  id: "arc",
   description: "Web browser",
   homepage: "https://arc.net",
   properties: { canHavePrefix: true },

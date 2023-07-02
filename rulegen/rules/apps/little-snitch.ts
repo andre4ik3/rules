@@ -3,6 +3,7 @@ import Paths from "../../paths.json" assert { type: "json" };
 
 export const metadata: Metadata = {
   name: "Little Snitch",
+  id: "little-snitch",
   description: "Advanced firewall for macOS",
   homepage: "https://obdev.at/products/littlesnitch/index.html",
 };

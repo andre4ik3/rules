@@ -1,35 +1,27 @@
-import { Handlebars } from "handlebars";
-import { paramCase } from "case";
-import { LSRules, Metadata, Rule } from "./rulegen/types.ts";
 import { serve } from "std/http/server.ts";
-import SystemRules from "./rulegen/rules/system.ts";
 import * as Snippets from "./rulegen/rules.ts";
+import SystemRules from "./rulegen/rules/system.ts";
+import { LSRules, Metadata, Rule, Snippet } from "./rulegen/types.ts";
+import { prefix } from "./rulegen/utils.ts";
 
-type Snippet = { metadata: Metadata; rules: Rule[] };
-
-const self = import.meta.url;
 const snippets = new Map<string, Snippet>();
-const snippetsDir = new URL(self.slice(0, self.lastIndexOf("/")) + "/rulegen/rules/apps/");
 
 // Import all rule snippets.
-for (const [key, value] of Object.entries(Snippets)) {
-  snippets.set(paramCase(key), value);
+for (const [_key, value] of Object.entries(Snippets)) {
+  snippets.set(value.metadata.id, value);
 }
-
-// Create prefixed variants.
-const prefixedSnippets = new Map<string, Snippet>();
 
 // Main HTTP server.
 serve((req) => {
   const url = new URL(req.url);
 
   // System rules are handled as a separate endpoint.
-  if (url.pathname === "/rules/system") {
+  if (url.pathname === "/system") {
     return Response.json(SystemRules);
   }
 
   // Aggregate endpoint for all apps.
-  if (url.pathname === "/rules/all") {
+  if (url.pathname === "/all") {
     const data: LSRules = {
       name: "Applications",
       description: "Includes rules for various 3rd-party apps.",
@@ -40,19 +32,13 @@ serve((req) => {
   }
 
   // Endpoint for prefixed apps (as installed on my machine).
-  if (url.pathname === "/rules/all-prefixed") {
-    const data: LSRules = {
-      name: "Applications",
-      description: "Includes rules for various 3rd-party apps (prefixed).",
-      rules: Array.from(prefixedSnippets.values()).map((s) => s.rules).flat(),
-    };
-
-    return Response.json(data);
+  if (url.pathname === "/all-prefixed") {
+    return Response.json({ todo: true });
   }
 
   // Pick-and-choose endpoint.
-  if (url.pathname.startsWith("/rules")) {
-    const ids = url.pathname.replace("/rules/", "").split("+");
+  if (url.pathname !== "/") {
+    const ids = url.pathname.substring(1).split("+");
     const selected = ids.map((id) => snippets.get(id));
 
     if (selected.some((s) => !s)) {
@@ -72,5 +58,5 @@ serve((req) => {
   }
 
   // By default, redirect to all rules endpoint. TODO: user interface
-  return Response.redirect(`${url.origin}/rules/all`);
+  return Response.redirect(`${url.origin}/all`);
 });

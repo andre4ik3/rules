@@ -3,6 +3,7 @@ import Paths from "../../paths.json" assert { type: "json" };
 
 export const metadata: Metadata = {
   name: "Raycast",
+  id: "raycast",
   description: "App launcher",
   homepage: "https://raycast.com",
   properties: { canHavePrefix: true },

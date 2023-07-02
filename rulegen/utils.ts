@@ -1,21 +1,16 @@
-function prefix(value: string): string[] {
-  const results = [value];
+import { Rule, Snippet } from "./types.ts";
 
-  if (value.startsWith("/Applications")) {
-    results.push(value.replace("/Applications", "/Applications/Homebrew"));
-    results.push(value.replace("/Applications", "~/Applications"));
-  } else if (value.startsWith("/usr/local")) {
-    results.push(value.replace("/usr/local", "/opt/homebrew"));
-    results.push(value.replace("/usr/local", "/opt/local"));
-  }
-
-  return results;
+function setPrefix(rule: Rule, prefix: string): Rule {
+  if (rule.process.startsWith("/Applications")) {
+    return { ...rule, process: rule.process.replace("/Applications", prefix) };
+  } else return rule;
 }
 
-export function maybePrefixed<T extends string | [string, string]>(
-  ...paths: T[]
-): T[] {
-  return paths.map((path) => {
-    return (typeof path === "string" ? prefix(path) : path.map(prefix));
-  }).flat() as T[];
+export function prefix(snippet: Snippet, prefix: string, id: string): Snippet {
+  if (snippet.metadata.properties?.canHavePrefix) {
+    return {
+      metadata: { ...snippet.metadata, id: `${snippet.metadata.id}-${id}` },
+      rules: [...snippet.rules].map((v) => setPrefix(v, "~/Applications")),
+    };
+  } else return snippet;
 }
