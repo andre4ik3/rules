@@ -1,13 +1,15 @@
 import { Rule, Snippet } from "./types.ts";
 
 function setPrefix(rule: Rule, prefix: string): Rule {
-  if (rule.process.startsWith("/Applications")) {
-    return {
-      ...rule,
-      process: rule.process.replace("/Applications", prefix),
-      via: rule.via?.replace("/Applications", prefix),
-    };
-  } else return rule;
+  const process = rule.process.startsWith("/Applications")
+    ? rule.process.replace("/Applications", prefix)
+    : rule.process;
+
+  const via = rule.via?.startsWith("/Applications")
+    ? rule.via.replace("/Applications", prefix)
+    : rule.via;
+
+  return { ...rule, process, via };
 }
 
 export function prefix(snippet: Snippet, prefix: string, id: string): Snippet {
