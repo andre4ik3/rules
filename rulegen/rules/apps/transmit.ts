@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   id: "transmit",
   description: "FTP client",
   homepage: "https://panic.com/transmit/",
-  properties: { canHavePrefix: true },
+  properties: { canHavePrefix: true, defaultPrefix: "homebrew" },
 };
 
 export const rules: Rule[] = [

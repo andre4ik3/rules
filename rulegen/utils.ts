@@ -10,7 +10,7 @@ export function prefix(snippet: Snippet, prefix: string, id: string): Snippet {
   if (snippet.metadata.properties?.canHavePrefix) {
     return {
       metadata: { ...snippet.metadata, id: `${snippet.metadata.id}-${id}` },
-      rules: [...snippet.rules].map((v) => setPrefix(v, "~/Applications")),
+      rules: [...snippet.rules].map((v) => setPrefix(v, prefix)),
     };
   } else return snippet;
 }

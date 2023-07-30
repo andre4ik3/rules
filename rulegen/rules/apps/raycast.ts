@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   id: "raycast",
   description: "App launcher",
   homepage: "https://raycast.com",
-  properties: { canHavePrefix: true },
+  properties: { canHavePrefix: true, defaultPrefix: "homebrew" },
 };
 
 export const rules: Rule[] = [

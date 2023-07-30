@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   id: "sketch",
   description: "Graphic design tool",
   homepage: "https://sketch.com",
-  properties: { canHavePrefix: true },
+  properties: { canHavePrefix: true, defaultPrefix: "homebrew" },
 };
 
 export const rules: Rule[] = [

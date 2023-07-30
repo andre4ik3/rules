@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   id: "screens",
   description: "Screen sharing client",
   homepage: "https://edovia.com/en/screens-mac/",
-  properties: { canHavePrefix: true },
+  properties: { canHavePrefix: true, defaultPrefix: "homebrew" },
 };
 
 export const rules: Rule[] = [

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   id: "arc",
   description: "Web browser",
   homepage: "https://arc.net",
-  properties: { canHavePrefix: true },
+  properties: { canHavePrefix: true, defaultPrefix: "homebrew" },
 };
 
 export const rules: Rule[] = [

@@ -10,7 +10,7 @@ export interface Metadata {
   id: string;
   description: string;
   homepage: string;
-  properties?: Partial<{ canHavePrefix: true }>;
+  properties?: Partial<{ canHavePrefix: true; defaultPrefix: string }>;
 }
 
 export enum Direction {

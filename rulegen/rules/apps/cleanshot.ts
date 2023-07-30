@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   id: "cleanshot",
   description: "Advanced screen capture tool",
   homepage: "https://cleanshot.com/",
-  properties: { canHavePrefix: true },
+  properties: { canHavePrefix: true, defaultPrefix: "homebrew" },
 };
 
 export const rules: Rule[] = [

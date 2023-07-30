@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   id: "nova",
   description: "Native code editor",
   homepage: "https://nova.app",
-  properties: { canHavePrefix: true },
+  properties: { canHavePrefix: true, defaultPrefix: "homebrew" },
 };
 
 export const rules: Rule[] = [

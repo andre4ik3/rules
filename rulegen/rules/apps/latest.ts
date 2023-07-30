@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   id: "latest",
   description: "Software update checker",
   homepage: "https://max.codes/latest/",
-  properties: { canHavePrefix: true },
+  properties: { canHavePrefix: true, defaultPrefix: "homebrew" },
 };
 
 export const rules: Rule[] = [

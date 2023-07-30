@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   id: "raycast",
   description: "Measuring tool",
   homepage: "https://getpixelsnap.com/",
-  properties: { canHavePrefix: true },
+  properties: { canHavePrefix: true, defaultPrefix: "homebrew" },
 };
 
 export const rules: Rule[] = [
