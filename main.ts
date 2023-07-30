@@ -28,6 +28,8 @@ for (const [_key, value] of Object.entries(Snippets)) {
     defaultPrefixedSnippets.push(
       defaultPrefix ? prefix(value, PREFIXES.get(defaultPrefix)!, defaultPrefix) : value,
     );
+  } else {
+    defaultPrefixedSnippets.push(value);
   }
 }
 
