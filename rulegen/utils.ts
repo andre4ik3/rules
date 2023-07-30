@@ -2,7 +2,11 @@ import { Rule, Snippet } from "./types.ts";
 
 function setPrefix(rule: Rule, prefix: string): Rule {
   if (rule.process.startsWith("/Applications")) {
-    return { ...rule, process: rule.process.replace("/Applications", prefix) };
+    return {
+      ...rule,
+      process: rule.process.replace("/Applications", prefix),
+      via: rule.via?.replace("/Applications", prefix),
+    };
   } else return rule;
 }
 
