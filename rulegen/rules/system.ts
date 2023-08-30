@@ -56,6 +56,17 @@ const rules = [
     using: [[Protocol.TCP, 443]],
     notes: "Allows Weather and its widgets to operate.",
   }),
+
+  /* ======================================================================== */
+  /* Software Update                                                          */
+  /* ======================================================================== */
+
+  makeRule({
+    process: [Paths.system.update.daemon],
+    remote: [RemoteType.Host, ["swscan.apple.com", "xp.apple.com"]],
+    using: [[Protocol.TCP, 443]],
+    notes: "Allows the system to download software updates.",
+  }),
 ].flat();
 
 export default {
