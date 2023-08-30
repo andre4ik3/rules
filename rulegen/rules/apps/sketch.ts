@@ -10,5 +10,37 @@ export const metadata: Metadata = {
 };
 
 export const rules: Rule[] = [
-  // todo
+  makeRule({
+    process: [Paths.sketch],
+    remote: [RemoteType.Host, [
+      "graphql.sketch.cloud",
+      "api.prod.sketch.com",
+      "resources-live.sketch.cloud",
+      "www.sketch.com",
+    ]],
+    notes: "Allows Sketch to log into accounts and validate license keys.",
+  }),
+
+  makeRule({
+    process: [Paths.sketch],
+    remote: [RemoteType.Host, ["download.sketch.com"]],
+    notes: "Allows Sketch to download and check for updates.",
+  }),
+
+  makeRule({
+    process: [Paths.sketch],
+    remote: [RemoteType.Host, [
+      "graphql.sketch.cloud",
+      "api.prod.sketch.com",
+      "resources-live.sketch.cloud",
+      "www.sketch.com",
+    ]],
+    notes: "Allows Sketch to log into accounts and validate license keys.",
+  }),
+
+  makeRule({
+    process: [Paths.sketch],
+    remote: [RemoteType.Host, ["developer.apple.com", "devimages-cdn.apple.com"]],
+    notes: "Allows Sketch to download Apple's iOS design library.",
+  }),
 ].flat();
