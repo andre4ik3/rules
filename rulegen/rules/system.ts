@@ -63,7 +63,7 @@ const rules = [
 
   makeRule({
     process: [Paths.system.update.daemon],
-    remote: [RemoteType.Host, ["swscan.apple.com", "xp.apple.com"]],
+    remote: [RemoteType.Host, ["swscan.apple.com", "swdist.apple.com", "xp.apple.com"]],
     using: [[Protocol.TCP, 443]],
     notes: "Allows the system to check for and download software updates.",
   }),
