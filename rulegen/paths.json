@@ -6,6 +6,8 @@
 
   "cleanShot": "/Applications/CleanShot X.app/Contents/MacOS/CleanShot X",
 
+  "chrony": "/opt/homebrew/sbin/chronyd",
+
   "gpgSuite": {
     "updater": "/Library/Application Support/GPGTools/GPGSuite_Updater.app/Contents/MacOS/GPGSuite_Updater"
   },
