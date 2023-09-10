@@ -6,7 +6,6 @@ export * as Sketch from "./rules/apps/sketch.ts";
 export * as GpgSuite from "./rules/apps/gpg-suite.ts";
 export * as Arc from "./rules/apps/arc.ts";
 export * as RemoteDesktop from "./rules/apps/remote-desktop.ts";
-export * as Chrony from "./rules/apps/chrony.ts";
 export * as Screens from "./rules/apps/screens.ts";
 export * as Transmit from "./rules/apps/transmit.ts";
 export * as Pixelsnap from "./rules/apps/pixelsnap.ts";
