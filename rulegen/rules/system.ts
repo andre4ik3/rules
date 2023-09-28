@@ -3,6 +3,13 @@ import Paths from "../paths.json" assert { type: "json" };
 
 const rules = [
   makeRule({
+    process: [Paths.system.configDaemon],
+    remote: Remote.LocalNet,
+    using: [[Protocol.UDP, 67]],
+    notes: "Allows the computer to acquire a DHCP lease.",
+  }),
+
+  makeRule({
     process: [Paths.system.geoDaemon],
     remote: [RemoteType.Domain, ["ls.apple.com"]],
     using: [[Protocol.TCP, 443]],
@@ -15,6 +22,13 @@ const rules = [
     using: [[Protocol.TCP, 443]],
     notes:
       "Allows various system services to connect to Apple without revealing the client's IP address (similar to iCloud Private Relay).",
+  }),
+
+  makeRule({
+    process: [Paths.system.idleAssetsDaemon],
+    remote: [RemoteType.Host, ["configuration.apple.com", "sylvan.apple.com"]],
+    using: [[Protocol.TCP, 443]],
+    notes: "Allows downloading aerial screensavers and wallpapers.",
   }),
 
   /* ======================================================================== */
@@ -63,7 +77,12 @@ const rules = [
 
   makeRule({
     process: [Paths.system.update.daemon],
-    remote: [RemoteType.Host, ["swscan.apple.com", "swdist.apple.com", "xp.apple.com"]],
+    remote: [RemoteType.Host, [
+      "swscan.apple.com",
+      "swdist.apple.com",
+      "swcdn.apple.com",
+      "xp.apple.com",
+    ]],
     using: [[Protocol.TCP, 443]],
     notes: "Allows the system to check for and download software updates.",
   }),

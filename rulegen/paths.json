@@ -40,8 +40,11 @@
   },
 
   "system": {
+    "configDaemon": "/usr/libexec/configd",
     "geoDaemon": "/System/Library/PrivateFrameworks/GeoServices.framework/Versions/A/XPCServices/com.apple.geod.xpc/Contents/MacOS/com.apple.geod",
+    "netBiosDaemon": "/usr/sbin/netbiosd",
     "networkServiceProxy": "/usr/libexec/networkserviceproxy",
+    "idleAssetsDaemon": "/System/Library/PrivateFrameworks/TVIdleServices.framework/idleassetsd",
     "safari": {
       "app": "/Applications/Safari.app/Contents/MacOS/Safari",
       "safeBrowsingService": "/System/Library/PrivateFrameworks/SafariSafeBrowsing.framework/Versions/A/com.apple.Safari.SafeBrowsing.Service"
@@ -51,6 +54,7 @@
       "widget": "/System/Applications/Weather.app/Contents/PlugIns/WeatherWidget.appex/Contents/MacOS/WeatherWidget",
       "widgetIntents": "/System/Applications/Weather.app/Contents/PlugIns/WeatherIntents.appex/Contents/MacOS/WeatherIntents"
     },
+    "wifiVelocityDaemon": "/usr/libexec/wifivelocityd",
     "update": {
       "assetDaemon": "/usr/libexec/mobileassetd",
       "daemon": "/System/Library/CoreServices/Software Update.app/Contents/Resources/softwareupdated"
