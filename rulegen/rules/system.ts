@@ -98,7 +98,6 @@ const rules = [
   makeRule({
     process: [Paths.system.safari.app],
     remote: Remote.Any,
-    using: [[Protocol.TCP, "any"], [Protocol.UDP, "any"]],
     notes: "Allows Safari to be used for web browsing.",
   }),
 
@@ -112,7 +111,6 @@ const rules = [
   makeRule({
     process: [Paths.system.safari.webApp],
     remote: Remote.Any,
-    using: [[Protocol.TCP, "any"], [Protocol.UDP, "any"]],
     notes: "Allows Web Apps added from Safari to work.",
   }),
 

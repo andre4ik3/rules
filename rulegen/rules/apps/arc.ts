@@ -13,7 +13,6 @@ export const rules: Rule[] = [
   makeRule({
     process: [[Paths.arc.app, Paths.arc.helper]],
     remote: Remote.Any,
-    using: [[Protocol.TCP, "any"], [Protocol.UDP, "any"]],
     notes: "Allows Arc to be used for web browsing.",
   }),
 
