@@ -77,6 +77,20 @@ const rules = [
     notes: "Allows Contacts to synchronize data with CardDAV servers.",
   }),
 
+  makeRule({
+    process: [Paths.system.internetAccounts.mail],
+    remote: Remote.Any,
+    using: [
+      [Protocol.TCP, 25], // SMTP
+      [Protocol.TCP, 143], // IMAP
+      [Protocol.TCP, 465], // SMTP-TLS
+      [Protocol.TCP, 585], // IMAP4-TLS
+      [Protocol.TCP, 587], // Submission
+      [Protocol.TCP, 993], // IMAPS
+    ],
+    notes: "Allows Mail to synchronize data with mail servers.",
+  }),
+
   /* ======================================================================== */
   /* Safari                                                                   */
   /* ======================================================================== */
