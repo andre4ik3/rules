@@ -1,4 +1,4 @@
-import { makeRule, Protocol, Remote, RemoteType } from "../types.ts";
+import { Direction, makeRule, Protocol, Remote, RemoteType } from "../types.ts";
 import Paths from "../paths.json" assert { type: "json" };
 
 const rules = [
@@ -112,6 +112,25 @@ const rules = [
     process: [Paths.system.safari.webApp],
     remote: Remote.Any,
     notes: "Allows Web Apps added from Safari to work.",
+  }),
+
+  /* ======================================================================== */
+  /* Screen Sharing                                                           */
+  /* ======================================================================== */
+
+  makeRule({
+    process: [Paths.system.screenSharing],
+    remote: Remote.Any,
+    using: [[Protocol.TCP, 5900]],
+    notes: "Allows Screen Sharing to work.",
+  }),
+
+  makeRule({
+    process: [Paths.system.screenSharing],
+    direction: [Direction.Incoming],
+    remote: Remote.Any,
+    using: [[Protocol.UDP, 5900], [Protocol.UDP, 5901], [Protocol.UDP, 5902]],
+    notes: "Allows Screen Sharing to work.",
   }),
 
   /* ======================================================================== */

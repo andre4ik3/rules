@@ -56,6 +56,7 @@
       "safeBrowsingService": "/System/Library/PrivateFrameworks/SafariSafeBrowsing.framework/Versions/A/com.apple.Safari.SafeBrowsing.Service",
       "webApp": "/System/Volumes/Preboot/Cryptexes/App/System/Library/CoreServices/Web App.app/Contents/MacOS/Web App"
     },
+    "screenSharing": "/System/Applications/Utilities/Screen Sharing.app/Contents/MacOS/Screen Sharing",
     "update": {
       "assetDaemon": "/usr/libexec/mobileassetd",
       "daemon": "/System/Library/CoreServices/Software Update.app/Contents/Resources/softwareupdated"
