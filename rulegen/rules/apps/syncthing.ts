@@ -43,7 +43,6 @@ export const rules: Rule[] = [
   makeRule({
     process: [[Paths.syncthing.app, Paths.syncthing.appBinary]],
     remote: Remote.Any,
-    using: [[Protocol.TCP, "any"], [Protocol.UDP, "any"]],
     notes: "Allows Syncthing to connect to any device or relay.",
   }),
 ].flat();
