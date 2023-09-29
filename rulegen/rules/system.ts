@@ -32,6 +32,52 @@ const rules = [
   }),
 
   /* ======================================================================== */
+  /* Internet Accounts                                                        */
+  /* ======================================================================== */
+
+  makeRule({
+    process: [Paths.system.internetAccounts.daemon],
+    remote: [RemoteType.Host, ["mac-services.apple.com"]],
+    using: [[Protocol.TCP, 443]],
+    notes: "Allows server autodiscovery in Mail, Contacts, and Calendar.",
+  }),
+
+  makeRule({
+    process: [Paths.system.internetAccounts.daemon],
+    remote: Remote.Any,
+    using: [
+      [Protocol.TCP, 25], // SMTP
+      [Protocol.TCP, 143], // IMAP
+      [Protocol.TCP, 465], // SMTP-TLS
+      [Protocol.TCP, 585], // IMAP4-TLS
+      [Protocol.TCP, 587], // Submission
+      [Protocol.TCP, 993], // IMAPS
+    ],
+    notes: "Allows background data synchronization in Mail.",
+  }),
+
+  makeRule({
+    process: [Paths.system.internetAccounts.daemon],
+    remote: Remote.Any,
+    using: [[Protocol.TCP, 443]],
+    notes: "Allows background data synchronization in Contacts and Calendar.",
+  }),
+
+  makeRule({
+    process: [Paths.system.internetAccounts.calendar],
+    remote: Remote.Any,
+    using: [[Protocol.TCP, 443]],
+    notes: "Allows Calendar to synchronize data with CalDAV servers.",
+  }),
+
+  makeRule({
+    process: [Paths.system.internetAccounts.contacts],
+    remote: Remote.Any,
+    using: [[Protocol.TCP, 443]],
+    notes: "Allows Contacts to synchronize data with CardDAV servers.",
+  }),
+
+  /* ======================================================================== */
   /* Safari                                                                   */
   /* ======================================================================== */
 
@@ -47,6 +93,13 @@ const rules = [
     remote: [RemoteType.Domain, ["safebrowsing.apple"]],
     using: [[Protocol.TCP, 443]],
     notes: "Allows Safari's Safe Browsing integration to work.",
+  }),
+
+  makeRule({
+    process: [Paths.system.safari.webApp],
+    remote: Remote.Any,
+    using: [[Protocol.TCP, "any"], [Protocol.UDP, "any"]],
+    notes: "Allows Web Apps added from Safari to work.",
   }),
 
   /* ======================================================================== */

@@ -40,25 +40,33 @@
   },
 
   "system": {
+    "internetAccounts": {
+      "calendar": "/System/Library/PrivateFrameworks/DataAccess.framework/Support/dataaccessd",
+      "contacts": "/System/Library/Frameworks/AddressBook.framework/Versions/A/Helpers/AddressBookSourceSync.app/Contents/MacOS/AddressBookSourceSync",
+      "daemon": "/System/Library/Frameworks/Accounts.framework/Versions/A/Support/accountsd",
+      "mail": "/System/Applications/Mail.app/Contents/MacOS/Mail"
+    },
     "configDaemon": "/usr/libexec/configd",
     "geoDaemon": "/System/Library/PrivateFrameworks/GeoServices.framework/Versions/A/XPCServices/com.apple.geod.xpc/Contents/MacOS/com.apple.geod",
+    "idleAssetsDaemon": "/System/Library/PrivateFrameworks/TVIdleServices.framework/idleassetsd",
     "netBiosDaemon": "/usr/sbin/netbiosd",
     "networkServiceProxy": "/usr/libexec/networkserviceproxy",
-    "idleAssetsDaemon": "/System/Library/PrivateFrameworks/TVIdleServices.framework/idleassetsd",
     "safari": {
       "app": "/Applications/Safari.app/Contents/MacOS/Safari",
-      "safeBrowsingService": "/System/Library/PrivateFrameworks/SafariSafeBrowsing.framework/Versions/A/com.apple.Safari.SafeBrowsing.Service"
+      "safeBrowsingService": "/System/Library/PrivateFrameworks/SafariSafeBrowsing.framework/Versions/A/com.apple.Safari.SafeBrowsing.Service",
+      "webApp": "/System/Volumes/Preboot/Cryptexes/App/System/Library/CoreServices/Web App.app/Contents/MacOS/Web App"
     },
-    "weather": {
-      "app": "/System/Applications/Weather.app/Contents/MacOS/Weather",
-      "widget": "/System/Applications/Weather.app/Contents/PlugIns/WeatherWidget.appex/Contents/MacOS/WeatherWidget",
-      "widgetIntents": "/System/Applications/Weather.app/Contents/PlugIns/WeatherIntents.appex/Contents/MacOS/WeatherIntents"
-    },
-    "wifiVelocityDaemon": "/usr/libexec/wifivelocityd",
     "update": {
       "assetDaemon": "/usr/libexec/mobileassetd",
       "daemon": "/System/Library/CoreServices/Software Update.app/Contents/Resources/softwareupdated"
-    }
+    },
+    "weather": {
+      "app": "/System/Applications/Weather.app/Contents/MacOS/Weather",
+      "daemon": "/System/Library/PrivateFrameworks/WeatherDaemon.framework/weatherd",
+      "widget": "/System/Applications/Weather.app/Contents/PlugIns/WeatherWidget.appex/Contents/MacOS/WeatherWidget",
+      "widgetIntents": "/System/Applications/Weather.app/Contents/PlugIns/WeatherIntents.appex/Contents/MacOS/WeatherIntents"
+    },
+    "wifiVelocityDaemon": "/usr/libexec/wifivelocityd"
   },
 
   "transmit": "/Applications/Transmit.app/Contents/MacOS/Transmit",
