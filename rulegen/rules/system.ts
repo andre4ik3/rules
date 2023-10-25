@@ -165,7 +165,6 @@ const rules = [
       "swscan.apple.com",
       "swdist.apple.com",
       "swcdn.apple.com",
-      "xp.apple.com",
     ]],
     using: [[Protocol.TCP, 443]],
     notes: "Allows the system to check for and download software updates.",
@@ -173,9 +172,17 @@ const rules = [
 
   makeRule({
     process: [Paths.system.update.assetDaemon],
-    remote: [RemoteType.Host, ["gdmf.apple.com", "xp.apple.com"]],
+    remote: [RemoteType.Host, ["gdmf.apple.com"]],
     using: [[Protocol.TCP, 443]],
     notes: "Allows the system to download software updates.",
+  }),
+
+  makeRule({
+    process: ["any"], // Process path changes every time, e.g. /private/var/db/*/16777233.16650742.xpc/Contents/MacOS/com.apple.MobileSoftwareUpdate.UpdateBrainService
+    remote: [RemoteType.Host, ["gs.apple.com"]],
+    using: [[Protocol.TCP, 443]],
+    notes:
+      "Allows the system to apply software updates. Only required on Macs with Apple Silicon or a T2 chip.",
   }),
 ].flat();
 
