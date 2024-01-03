@@ -79,7 +79,7 @@
 
   "whatsapp": {
     "app": "/Applications/WhatsApp.app/Contents/MacOS/WhatsApp",
-    "extension": "Applications/WhatsApp.app/Contents/PlugIns/ServiceExtension.appex/Contents/MacOS/ServiceExtension"
+    "extension": "/Applications/WhatsApp.app/Contents/PlugIns/ServiceExtension.appex/Contents/MacOS/ServiceExtension"
   },
 
   "wireguard": "/Applications/WireGuard.app/Contents/PlugIns/WireGuardNetworkExtension.appex/Contents/MacOS/WireGuardNetworkExtension"
