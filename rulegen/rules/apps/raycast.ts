@@ -19,6 +19,13 @@ export const rules: Rule[] = [
     using: [[Protocol.TCP, 443]],
     notes: "Allows Raycast to look up flights and currency conversions.",
   }),
+  
+  makeRule({
+    process: [Paths.raycast],
+    remote: [RemoteType.Host, ["www.raycast.com"]],
+    using: [[Protocol.TCP, 443]],
+    notes: "Allows Raycast to log into accounts.",
+  }),
 
   makeRule({
     process: [Paths.raycast],

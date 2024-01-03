@@ -53,7 +53,7 @@ serve((req) => {
     return Response.json(data);
   }
 
-  // Endpoint for prefixed apps (as installed on my machine).
+  // Endpoint for prefixed apps (Homebrew apps in /Applications/Homebrew, everything else in /Applications).
   if (url.pathname === "/all-prefixed") {
     const data: LSRules = {
       name: "Applications",
