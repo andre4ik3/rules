@@ -3,7 +3,7 @@
     "app": "/Applications/Arc.app/Contents/MacOS/Arc",
     "helper": "/Applications/Arc.app/Contents/Frameworks/ArcCore.framework/Versions/A/Helpers/Arc Helper.app/Contents/MacOS/Arc Helper"
   },
-  
+
   "bezel": "/Applications/Bezel.app/Contents/MacOS/Bezel",
   "cleanShot": "/Applications/CleanShot X.app/Contents/MacOS/CleanShot X",
   "crystalfetch": "/Applications/CrystalFetch.app/Contents/MacOS/CrystalFetch",
@@ -43,6 +43,18 @@
   },
 
   "system": {
+    "appSiteAssociationDaemon": "/usr/libexec/swcd",
+    "chronoDaemon": "/System/Library/PrivateFrameworks/ChronoCore.framework/Support/chronod",
+    "cloud": {
+      "syncDaemon": "/System/Library/PrivateFrameworks/CloudKitDaemon.framework/Support/cloudd",
+      "helper": "/System/Library/PrivateFrameworks/AOSKit.framework/Versions/A/XPCServices/com.apple.iCloudHelper.xpc/Contents/MacOS/com.apple.iCloudHelper",
+      "notificationAgent": "/System/Library/PrivateFrameworks/iCloudNotification.framework/iCloudNotificationAgent"
+    },
+    "continuity": {
+      "rapportDaemon": "/usr/libexec/rapportd",
+      "remotePairingDaemon": "/Library/Apple/System/Library/PrivateFrameworks/RemotePairing.framework/Versions/A/XPCServices/remotepairingd.xpc/Contents/MacOS/remotepairingd"
+    },
+    "controlCenter": "/System/Library/CoreServices/ControlCenter.app/Contents/MacOS/ControlCenter",
     "internetAccounts": {
       "calendar": "/System/Library/PrivateFrameworks/DataAccess.framework/Support/dataaccessd",
       "contacts": "/System/Library/Frameworks/AddressBook.framework/Versions/A/Helpers/AddressBookSourceSync.app/Contents/MacOS/AddressBookSourceSync",
@@ -54,12 +66,18 @@
     "idleAssetsDaemon": "/System/Library/PrivateFrameworks/TVIdleServices.framework/idleassetsd",
     "netBiosDaemon": "/usr/sbin/netbiosd",
     "networkServiceProxy": "/usr/libexec/networkserviceproxy",
+    "pushDaemon": "/System/Library/PrivateFrameworks/ApplePushService.framework/apsd",
     "safari": {
       "app": "/Applications/Safari.app/Contents/MacOS/Safari",
       "safeBrowsingService": "/System/Library/PrivateFrameworks/SafariSafeBrowsing.framework/Versions/A/com.apple.Safari.SafeBrowsing.Service",
       "webApp": "/System/Volumes/Preboot/Cryptexes/App/System/Library/CoreServices/Web App.app/Contents/MacOS/Web App"
     },
+    "settings": {
+      "appleId": "/System/Library/ExtensionKit/Extensions/AppleIDSettings.appex/Contents/MacOS/AppleIDSettings"
+    },
     "screenSharing": "/System/Applications/Utilities/Screen Sharing.app/Contents/MacOS/Screen Sharing",
+    "systemPolicyDaemon": "/usr/libexec/syspolicyd",
+    "timeDaemon": "/usr/libexec/timed",
     "update": {
       "assetDaemon": "/usr/libexec/mobileassetd",
       "daemon": "/System/Library/CoreServices/Software Update.app/Contents/Resources/softwareupdated"

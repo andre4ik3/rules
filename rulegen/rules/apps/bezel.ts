@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 
 export const rules: Rule[] = [
   makeRule({
-	process: [Paths.bezel],
-	remote: [RemoteType.Host, ["customers.nonstrict.com"]],
-	using: [[Protocol.TCP, 443]],
-	notes: "Allows Bezel to check the validity of a license key.",
+    process: [Paths.bezel],
+    remote: [RemoteType.Host, ["customers.nonstrict.com"]],
+    using: [[Protocol.TCP, 443]],
+    notes: "Allows Bezel to check the validity of a license key.",
   }),
 ].flat();

@@ -5,7 +5,8 @@ export const metadata: Metadata = {
   name: "Microsoft Remote Desktop",
   id: "msrd",
   description: "RDP client",
-  homepage: "https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac",
+  homepage:
+    "https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac",
   properties: { canHavePrefix: true },
 };
 

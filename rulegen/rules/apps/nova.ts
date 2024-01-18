@@ -26,10 +26,10 @@ export const rules: Rule[] = [
 
   makeRule({
     process: [Paths.nova],
-    remote: [RemoteType.Host, [
-      "extensions.panic.com",
-      "nova-extensions.freetls.fastly.net",
-    ]],
+    remote: [
+      RemoteType.Host,
+      ["extensions.panic.com", "nova-extensions.freetls.fastly.net"],
+    ],
     using: [[Protocol.TCP, 443]],
     notes: "Allows Nova to download and update extensions.",
   }),

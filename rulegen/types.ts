@@ -99,7 +99,10 @@ const defaultOptions = {
   direction: [Direction.Outgoing],
   priority: Priority.Regular,
   action: Action.Allow,
-  using: [[Protocol.Any, "any"]] as [Protocol, number | number[] | `${number}-${number}` | "any"][],
+  using: [[Protocol.Any, "any"]] as [
+    Protocol,
+    number | number[] | `${number}-${number}` | "any",
+  ][],
 };
 
 type CombinedOptions = typeof defaultOptions & MakeRuleOptions;
@@ -136,11 +139,12 @@ export function makeRule(input: MakeRuleOptions): Rule[] {
           via,
           disabled: true,
 
-          ports: using[1] === "any"
-            ? undefined
-            : Array.isArray(using[1])
-            ? using[1].join(", ")
-            : `${using[1]}`,
+          ports:
+            using[1] === "any"
+              ? undefined
+              : Array.isArray(using[1])
+                ? using[1].join(", ")
+                : `${using[1]}`,
           protocol: using[0] === Protocol.Any ? undefined : using[0],
           notes: opts.notes,
           ...makeRemote(opts.remote),

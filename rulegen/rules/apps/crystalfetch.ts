@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 
 export const rules: Rule[] = [
   makeRule({
-	process: [Paths.crystalfetch],
-	remote: [RemoteType.Domain, ["uupdump.net", "microsoft.com"]],
-	using: [[Protocol.TCP, 443]],
-	notes: "Allows CrystalFetch to download Windows images.",
+    process: [Paths.crystalfetch],
+    remote: [RemoteType.Domain, ["uupdump.net", "microsoft.com"]],
+    using: [[Protocol.TCP, 443]],
+    notes: "Allows CrystalFetch to download Windows images.",
   }),
 ].flat();

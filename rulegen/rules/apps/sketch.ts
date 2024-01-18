@@ -1,4 +1,11 @@
-import { makeRule, Metadata, Protocol, Remote, RemoteType, Rule } from "../../types.ts";
+import {
+  makeRule,
+  Metadata,
+  Protocol,
+  Remote,
+  RemoteType,
+  Rule,
+} from "../../types.ts";
 import Paths from "../../paths.json" assert { type: "json" };
 
 export const metadata: Metadata = {
@@ -12,12 +19,15 @@ export const metadata: Metadata = {
 export const rules: Rule[] = [
   makeRule({
     process: [Paths.sketch],
-    remote: [RemoteType.Host, [
-      "graphql.sketch.cloud",
-      "api.prod.sketch.com",
-      "resources-live.sketch.cloud",
-      "www.sketch.com",
-    ]],
+    remote: [
+      RemoteType.Host,
+      [
+        "graphql.sketch.cloud",
+        "api.prod.sketch.com",
+        "resources-live.sketch.cloud",
+        "www.sketch.com",
+      ],
+    ],
     using: [[Protocol.TCP, 443]],
     notes: "Allows Sketch to log into accounts and validate license keys.",
   }),
@@ -31,7 +41,10 @@ export const rules: Rule[] = [
 
   makeRule({
     process: [Paths.sketch],
-    remote: [RemoteType.Host, ["developer.apple.com", "devimages-cdn.apple.com"]],
+    remote: [
+      RemoteType.Host,
+      ["developer.apple.com", "devimages-cdn.apple.com"],
+    ],
     using: [[Protocol.TCP, 443]],
     notes: "Allows Sketch to download Apple's iOS design library.",
   }),

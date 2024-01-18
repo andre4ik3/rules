@@ -1,4 +1,11 @@
-import { makeRule, Metadata, Protocol, Remote, RemoteType, Rule } from "../../types.ts";
+import {
+  makeRule,
+  Metadata,
+  Protocol,
+  Remote,
+  RemoteType,
+  Rule,
+} from "../../types.ts";
 import Paths from "../../paths.json" assert { type: "json" };
 
 export const metadata: Metadata = {
@@ -13,7 +20,8 @@ export const rules: Rule[] = [
     process: [Paths.littleSnitch.downloader],
     remote: Remote.Any,
     using: [[Protocol.TCP, 443]],
-    notes: "Allows Little Snitch to download and update Rule Group Subscriptions.",
+    notes:
+      "Allows Little Snitch to download and update Rule Group Subscriptions.",
   }),
 
   makeRule({

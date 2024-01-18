@@ -12,14 +12,14 @@ export const metadata: Metadata = {
 export const rules: Rule[] = [
   makeRule({
     process: [Paths.raycast],
-    remote: [RemoteType.Host, [
-      "aerodatabox.p.rapidapi.com",
-      "backend.raycast.com",
-    ]],
+    remote: [
+      RemoteType.Host,
+      ["aerodatabox.p.rapidapi.com", "backend.raycast.com"],
+    ],
     using: [[Protocol.TCP, 443]],
     notes: "Allows Raycast to look up flights and currency conversions.",
   }),
-  
+
   makeRule({
     process: [Paths.raycast],
     remote: [RemoteType.Host, ["www.raycast.com"]],

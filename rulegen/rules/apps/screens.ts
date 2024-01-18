@@ -1,4 +1,11 @@
-import { makeRule, Metadata, Protocol, Remote, RemoteType, Rule } from "../../types.ts";
+import {
+  makeRule,
+  Metadata,
+  Protocol,
+  Remote,
+  RemoteType,
+  Rule,
+} from "../../types.ts";
 import Paths from "../../paths.json" assert { type: "json" };
 
 export const metadata: Metadata = {

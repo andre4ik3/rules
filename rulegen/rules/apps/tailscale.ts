@@ -1,4 +1,12 @@
-import { Direction, makeRule, Metadata, Protocol, Remote, RemoteType, Rule } from "../../types.ts";
+import {
+  Direction,
+  makeRule,
+  Metadata,
+  Protocol,
+  Remote,
+  RemoteType,
+  Rule,
+} from "../../types.ts";
 import Paths from "../../paths.json" assert { type: "json" };
 
 export const metadata: Metadata = {
@@ -12,10 +20,15 @@ export const rules: Rule[] = [
   makeRule({
     process: [Paths.tailscale],
     remote: [RemoteType.Domain, ["tailscale.com", "tailscale.io"]],
-    using: [[Protocol.TCP, 80], [Protocol.TCP, 443], [Protocol.UDP, 3478]],
-    notes: "Allows Tailscale to sign in, discover peers, and send traffic via proxy servers.",
+    using: [
+      [Protocol.TCP, 80],
+      [Protocol.TCP, 443],
+      [Protocol.UDP, 3478],
+    ],
+    notes:
+      "Allows Tailscale to sign in, discover peers, and send traffic via proxy servers.",
   }),
-  
+
   makeRule({
     process: [Paths.tailscale],
     remote: Remote.Any,

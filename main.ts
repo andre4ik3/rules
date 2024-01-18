@@ -26,7 +26,9 @@ for (const [_key, value] of Object.entries(Snippets)) {
     const defaultPrefix = value.metadata.properties.defaultPrefix;
 
     defaultPrefixedSnippets.push(
-      defaultPrefix ? prefix(value, PREFIXES.get(defaultPrefix)!, defaultPrefix) : value,
+      defaultPrefix
+        ? prefix(value, PREFIXES.get(defaultPrefix)!, defaultPrefix)
+        : value,
     );
   } else {
     defaultPrefixedSnippets.push(value);
@@ -47,7 +49,9 @@ serve((req) => {
     const data: LSRules = {
       name: "Applications",
       description: "Includes rules for various 3rd-party apps.",
-      rules: Array.from(snippets.values()).map((s) => s.rules).flat(),
+      rules: Array.from(snippets.values())
+        .map((s) => s.rules)
+        .flat(),
     };
 
     return Response.json(data);
@@ -68,7 +72,9 @@ serve((req) => {
   // Pick-and-choose endpoint.
   if (url.pathname !== "/") {
     const ids = url.pathname.substring(1).split("+");
-    const selected = ids.map((id) => snippets.get(id) || prefixedSnippets.get(id));
+    const selected = ids.map(
+      (id) => snippets.get(id) || prefixedSnippets.get(id),
+    );
 
     if (selected.some((s) => !s)) {
       return new Response("one of the apps was not found", { status: 404 });

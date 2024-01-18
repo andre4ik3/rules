@@ -20,7 +20,10 @@ export const rules: Rule[] = [
   makeRule({
     process: [Paths.remoteDesktop.app],
     remote: Remote.Any,
-    using: [[Protocol.ICMP, "any"], [Protocol.TCP, 5900]],
+    using: [
+      [Protocol.ICMP, "any"],
+      [Protocol.TCP, 5900],
+    ],
     notes: "Allows Remote Desktop to perform screen sharing.",
   }),
 ].flat();
