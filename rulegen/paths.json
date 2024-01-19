@@ -52,7 +52,8 @@
     },
     "continuity": {
       "rapportDaemon": "/usr/libexec/rapportd",
-      "remotePairingDaemon": "/Library/Apple/System/Library/PrivateFrameworks/RemotePairing.framework/Versions/A/XPCServices/remotepairingd.xpc/Contents/MacOS/remotepairingd"
+      "remotePairingDaemon": "/Library/Apple/System/Library/PrivateFrameworks/RemotePairing.framework/Versions/A/XPCServices/remotepairingd.xpc/Contents/MacOS/remotepairingd",
+      "universalControl": "/System/Library/CoreServices/UniversalControl.app/Contents/MacOS/UniversalControl"
     },
     "controlCenter": "/System/Library/CoreServices/ControlCenter.app/Contents/MacOS/ControlCenter",
     "internetAccounts": {
@@ -77,11 +78,11 @@
     },
     "screenSharing": "/System/Applications/Utilities/Screen Sharing.app/Contents/MacOS/Screen Sharing",
     "systemPolicyDaemon": "/usr/libexec/syspolicyd",
-    "timeDaemon": "/usr/libexec/timed",
     "update": {
       "assetDaemon": "/usr/libexec/mobileassetd",
       "daemon": "/System/Library/CoreServices/Software Update.app/Contents/Resources/softwareupdated"
     },
+    "usbMultiplexerDaemon": "/Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/Resources/usbmuxd",
     "weather": {
       "app": "/System/Applications/Weather.app/Contents/MacOS/Weather",
       "daemon": "/System/Library/PrivateFrameworks/WeatherDaemon.framework/weatherd",
