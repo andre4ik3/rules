@@ -11,14 +11,6 @@ const rules = [
   }),
 
   makeRule({
-    process: [Paths.system.chronoDaemon],
-    direction: [Direction.Incoming, Direction.Outgoing],
-    remote: Remote.LocalNet,
-    using: [[Protocol.UDP, "any"]],
-    notes: "Allows time synchronization with devices on the local network.",
-  }),
-
-  makeRule({
     process: [Paths.system.configDaemon],
     remote: Remote.LocalNet,
     using: [[Protocol.UDP, 67]],
@@ -68,6 +60,13 @@ const rules = [
     process: [Paths.system.urlSessionDaemon],
     remote: Remote.Any,
     notes: "Allows apps and system services to perform background transfers."
+  }),
+
+  makeRule({
+    process: [Paths.system.wifiVelocityDaemon],
+    remote: Remote.Any,
+    using: [[Protocol.ICMP, "any"]],
+    notes: "Allows the system to determine network performance.",
   }),
 
   /* ======================================================================== */

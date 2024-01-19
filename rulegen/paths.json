@@ -44,7 +44,6 @@
 
   "system": {
     "appSiteAssociationDaemon": "/usr/libexec/swcd",
-    "chronoDaemon": "/System/Library/PrivateFrameworks/ChronoCore.framework/Support/chronod",
     "cloud": {
       "syncDaemon": "/System/Library/PrivateFrameworks/CloudKitDaemon.framework/Support/cloudd",
       "helper": "/System/Library/PrivateFrameworks/AOSKit.framework/Versions/A/XPCServices/com.apple.iCloudHelper.xpc/Contents/MacOS/com.apple.iCloudHelper",
