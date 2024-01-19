@@ -50,18 +50,8 @@
       "helper": "/System/Library/PrivateFrameworks/AOSKit.framework/Versions/A/XPCServices/com.apple.iCloudHelper.xpc/Contents/MacOS/com.apple.iCloudHelper",
       "notificationAgent": "/System/Library/PrivateFrameworks/iCloudNotification.framework/iCloudNotificationAgent"
     },
-    "continuity": {
-      "rapportDaemon": "/usr/libexec/rapportd",
-      "remotePairingDaemon": "/Library/Apple/System/Library/PrivateFrameworks/RemotePairing.framework/Versions/A/XPCServices/remotepairingd.xpc/Contents/MacOS/remotepairingd",
-      "universalControl": "/System/Library/CoreServices/UniversalControl.app/Contents/MacOS/UniversalControl"
-    },
     "controlCenter": "/System/Library/CoreServices/ControlCenter.app/Contents/MacOS/ControlCenter",
-    "internetAccounts": {
-      "calendar": "/System/Library/PrivateFrameworks/DataAccess.framework/Support/dataaccessd",
-      "contacts": "/System/Library/Frameworks/AddressBook.framework/Versions/A/Helpers/AddressBookSourceSync.app/Contents/MacOS/AddressBookSourceSync",
-      "daemon": "/System/Library/Frameworks/Accounts.framework/Versions/A/Support/accountsd",
-      "mail": "/System/Applications/Mail.app/Contents/MacOS/Mail"
-    },
+    "internetAccountsDaemon": "/System/Library/Frameworks/Accounts.framework/Versions/A/Support/accountsd",
     "configDaemon": "/usr/libexec/configd",
     "geoDaemon": "/System/Library/PrivateFrameworks/GeoServices.framework/Versions/A/XPCServices/com.apple.geod.xpc/Contents/MacOS/com.apple.geod",
     "idleAssetsDaemon": "/System/Library/PrivateFrameworks/TVIdleServices.framework/idleassetsd",
@@ -78,11 +68,11 @@
     },
     "screenSharing": "/System/Applications/Utilities/Screen Sharing.app/Contents/MacOS/Screen Sharing",
     "systemPolicyDaemon": "/usr/libexec/syspolicyd",
+    "urlSessionDaemon": "/usr/libexec/nsurlsessiond",
     "update": {
       "assetDaemon": "/usr/libexec/mobileassetd",
       "daemon": "/System/Library/CoreServices/Software Update.app/Contents/Resources/softwareupdated"
     },
-    "usbMultiplexerDaemon": "/Library/Apple/System/Library/PrivateFrameworks/MobileDevice.framework/Versions/A/Resources/usbmuxd",
     "weather": {
       "app": "/System/Applications/Weather.app/Contents/MacOS/Weather",
       "daemon": "/System/Library/PrivateFrameworks/WeatherDaemon.framework/weatherd",

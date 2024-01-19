@@ -65,11 +65,9 @@ const rules = [
   }),
 
   makeRule({
-    process: [Paths.system.usbMultiplexerDaemon],
-    remote: Remote.LocalNet,
-    using: [[Protocol.TCP, "any"]],
-    notes:
-      "Allows wireless pairing and synchronization with other devices to work.",
+    process: [Paths.system.urlSessionDaemon],
+    remote: Remote.Any,
+    notes: "Allows apps and system services to perform background transfers."
   }),
 
   /* ======================================================================== */
@@ -114,45 +112,11 @@ const rules = [
   }),
 
   /* ======================================================================== */
-  /* Continuity                                                               */
-  /* ======================================================================== */
-
-  makeRule({
-    process: [
-      Paths.system.continuity.rapportDaemon,
-      Paths.system.continuity.remotePairingDaemon,
-    ],
-    direction: [Direction.Incoming, Direction.Outgoing],
-    remote: Remote.LocalNet,
-    using: [
-      [Protocol.TCP, "any"],
-      [Protocol.UDP, 3722],
-    ],
-    notes: "Allows Continuity and Handoff features to work.",
-  }),
-
-  makeRule({
-    process: [Paths.system.controlCenter],
-    direction: [Direction.Incoming],
-    remote: Remote.LocalNet,
-    using: [[Protocol.TCP, 7000]],
-    notes: "Allows AirPlay Receiver to work.",
-  }),
-
-  makeRule({
-    process: [Paths.system.continuity.universalControl],
-    direction: [Direction.Incoming, Direction.Outgoing],
-    remote: Remote.LocalNet,
-    using: [[Protocol.TCP, "any"]],
-    notes: "Allows Universal Control to work.",
-  }),
-
-  /* ======================================================================== */
   /* Internet Accounts                                                        */
   /* ======================================================================== */
 
   makeRule({
-    process: [Paths.system.internetAccounts.daemon],
+    process: [Paths.system.internetAccountsDaemon],
     remote: [RemoteType.Host, ["mac-services.apple.com"]],
     using: [[Protocol.TCP, 443]],
     notes: "Allows server autodiscovery in Mail, Contacts, and Calendar.",
